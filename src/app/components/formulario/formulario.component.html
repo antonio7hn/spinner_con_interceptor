@@ -1,0 +1,25 @@
+<button (click)="formularioActivo=!formularioActivo" class="btn btn-outline-primary my-2">Nuevo Post</button>
+
+<div class="row">
+
+    <div class="border p-5 col-sm-12 col-md-6" *ngIf="formularioActivo">
+        <h2>Formulario de ingreso de nuevo Post</h2>
+        
+        <form [formGroup]="formPost">
+            <div class="form-group mb-3">
+                <label for="formGroupExampleInput">Titulo</label>
+                <input type="text" class="form-control" formControlName="title" id="formGroupExampleInput" placeholder="Ingrese un titulo">
+            </div>
+            <div class="form-group  mb-3">
+                <label for="formGroupExampleInput2">Descripción</label>
+                <input type="text" class="form-control" formControlName="body" id="formGroupExampleInput2" placeholder="Ingrese una Descripción">
+            </div>
+            <select class="form-select mb-3" aria-placeholder="Seleccione un cliente" formControlName="userId" aria-label="Default select example">
+                <option selected>Seleccione un cliente</option>
+                <option [value]="usuario.id" *ngFor="let usuario of usuarios">{{usuario.name}}</option>
+            </select>
+            <button (click)="enviarPost()" [disabled]="formPost.invalid" class="btn btn-outline-primary">Registrar</button>
+        </form>
+        {{formPost.value | json}}
+    </div>
+</div>

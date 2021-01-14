@@ -1,0 +1,15 @@
+<!-- <app-formulario></app-formulario> -->
+<div>
+    <mat-spinner
+    mode="indeterminate">
+    </mat-spinner>
+</div>
+
+<div  class="border p-3 mt-2" *ngFor="let post of posts"> 
+    <h3 (click)="irPostsDetalles(post)">{{post.title}}</h3>
+    <h5>{{post.body}}</h5>
+    <button (click)="editarPost(post.id)" class="btn btn-outline-primary mt-2">Editar post</button> <br>
+    <button (click)="eliminarPost(post.id)" class="btn btn-outline-primary mt-2">Eliminar Post</button>
+</div>
+
+<ngx-spinner></ngx-spinner>
